@@ -5,17 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>💝 Com amor e carinho 💝</title>
   <style>
-    body {
-  margin: 0;
-  padding: 0;
-  background-color: #001f3f;
-  color: white;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  overflow-x: hidden; /* agora permite rolar para baixo */
-}
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #001f3f;
+      color: white;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow-x: hidden;
+      overflow-y: auto; /* permite rolagem vertical */
+    }
 
     /* CORAÇÕES ANIMADOS */
     .heart {
@@ -41,11 +39,12 @@
     }
 
     header {
-      padding: 18px;
+      padding: 20px;
       text-align: center;
-      font-size: 1.8em;
+      font-size: 2em;
       color: #ffccff;
     }
+
     .start-screen {
       display: flex;
       flex-direction: column;
@@ -53,70 +52,92 @@
       justify-content: center;
       height: 100vh;
       text-align: center;
+      padding: 20px;
     }
+
+    .start-screen h1 {
+      font-size: 3em; /* AJUSTE DE TAMANHO PARA RESOLUÇÃO ALTA */
+      color: #ffccff;
+      text-shadow: 2px 2px #000;
+      margin-bottom: 20px;
+    }
+
     .start-screen button {
-      padding: 10px 20px;
-      font-size: 0.8em;
+      padding: 15px 30px;
+      font-size: 1.2em;
       background-color: #ff69b4;
       border: none;
-      border-radius: 8px;
+      border-radius: 10px;
       color: white;
       cursor: pointer;
-      margin-top: 20px;
     }
+
     .hidden {
       display: none;
     }
+
     .voucher {
       background-color: #0d223f;
-      padding: 20px;
-      margin: 20px;
+      padding: 24px;
+      margin: 20px auto;
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
       max-width: 500px;
       text-align: center;
     }
+
     .voucher h2 {
       color: #ff69b4;
+      font-size: 2em;
     }
+
     .voucher p {
-      font-size: 0.9em;
-      line-height: 1.0;
+      font-size: 1.1em;
+      line-height: 1.6;
     }
+
     .gift-reveal {
       margin-top: 20px;
     }
+
     .gift-icon {
-      font-size: 3em;
+      font-size: 4em;
       cursor: pointer;
       transition: transform 0.3s ease;
     }
+
     .gift-icon:hover {
       transform: scale(1.1);
     }
+
     .gift-message {
       margin-top: 15px;
-      font-size: 1.1em;
+      font-size: 1.3em;
       color: #ffd700;
       display: none;
     }
+
     .gallery {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 15px;
       width: 100%;
-      max-width: 480px;
-      padding: 10px;
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 10px 20px;
     }
+
     .gallery img {
       width: 100%;
       height: auto;
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
+
     footer {
-      margin: 20px;
-      font-size: 0.9em;
+      margin: 40px 20px 20px;
+      font-size: 1em;
+      text-align: center;
       color: #ccc;
     }
   </style>
