@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voucher para Janielly 💝</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #001f3f;
+      color: white;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    header {
+      padding: 20px;
+      text-align: center;
+      font-size: 1.5em;
+      color: #ffccff;
+    }
+    .voucher {
+      background-color: #0d223f;
+      padding: 20px;
+      margin: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      max-width: 500px;
+      text-align: center;
+    }
+    .voucher h2 {
+      color: #ff69b4;
+    }
+    .voucher p {
+      font-size: 1.1em;
+      line-height: 1.6;
+    }
+    .gallery {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+      max-width: 480px;
+      padding: 10px;
+    }
+    .gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    footer {
+      margin: 20px;
+      font-size: 0.9em;
+      color: #ccc;
+      text-align: center;
+    }
+    #start-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #001f3f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      z-index: 1000;
+    }
+    #start-screen button {
+      padding: 15px 30px;
+      font-size: 1.2em;
+      background-color: #ff69b4;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    #content {
+      display: none;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="start-screen">
+    <h1>💘 Toque para começar 💘</h1>
+    <button onclick="startSite()">Iniciar</button>
+  </div>
+
+  <div id="content">
+    <header>💘 Feliz Dia dos Namorados, Janielly 💘</header>
+    <div class="voucher">
+      <h2>Voucher de Amor</h2>
+      <p>Esse presente é apenas uma pequena demonstração de amor que tenho por você. E queria lhe dizer que me sinto muito lisonjeado de ter você em minha vida, nunca me senti tão bem amado como me sinto ao seu lado.<br><br>
+      Te amo minha princesa. 💖<br><br>
+      <strong>Presente:</strong> Vale compra no valor de <strong>R$ 500,00</strong></p>
+      <p>Com amor,<br>💌 Aldson Lima</p>
+    </div>
+
+    <div class="gallery">
+      <img src="img1.jpg" alt="Foto 1">
+      <img src="img2.jpg" alt="Foto 2">
+      <img src="img3.jpg" alt="Foto 3">
+      <img src="img4.jpg" alt="Foto 4">
+      <img src="img5.jpg" alt="Foto 5">
+      <img src="img6.jpg" alt="Foto 6">
+      <img src="img7.jpg" alt="Foto 7">
+    </div>
+
+    <footer>
+      🎶 Trilha sonora: Nando Reis 🎶
+    </footer>
+  </div>
+
+  <audio id="bg-music" loop>
+    <source src="musica.mp3" type="audio/mpeg">
+    Seu navegador não suporta áudio HTML5.
+  </audio>
+
+  <script>
+    function startSite() {
+      document.getElementById('start-screen').style.display = 'none';
+      document.getElementById('content').style.display = 'block';
+      document.getElementById('bg-music').play();
+    }
+  </script>
+</body>
+</html>
