@@ -14,7 +14,32 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      overflow: hidden;
     }
+
+    /* CORAÇÕES ANIMADOS */
+    .heart {
+      position: fixed;
+      top: 100%;
+      font-size: 24px;
+      color: pink;
+      animation: float 10s linear infinite;
+      pointer-events: none;
+      opacity: 0.7;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+      }
+      20% { opacity: 1; }
+      100% {
+        transform: translateY(-120vh) translateX(var(--x));
+        opacity: 0;
+      }
+    }
+
     header {
       padding: 20px;
       text-align: center;
@@ -97,6 +122,20 @@
   </style>
 </head>
 <body>
+
+  <!-- CORAÇÕES ANIMADOS -->
+  <script>
+    for (let i = 0; i < 30; i++) {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (6 + Math.random() * 5) + "s";
+      heart.style.setProperty('--x', (Math.random() * 100 - 50) + 'px');
+      heart.textContent = "💖";
+      document.body.appendChild(heart);
+    }
+  </script>
+
   <div class="start-screen" id="startScreen">
     <h1>💘 Clique aqui, Meu Amor 💘</h1>
     <button onclick="startSite()">Iniciar</button>
@@ -138,6 +177,7 @@
       document.getElementById("mainContent").classList.remove("hidden");
       document.getElementById("bgMusic").play();
     }
+
     function revealGift() {
       document.getElementById("giftMessage").style.display = 'block';
     }
