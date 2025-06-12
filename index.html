@@ -17,13 +17,35 @@
       overflow: hidden;
     }
 
+    /* CORAÇÕES ANIMADOS */
+    .heart {
+      position: fixed;
+      top: 100%;
+      font-size: 24px;
+      color: pink;
+      animation: float 10s linear infinite;
+      pointer-events: none;
+      opacity: 0.7;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+      }
+      20% { opacity: 1; }
+      100% {
+        transform: translateY(-120vh) translateX(var(--x));
+        opacity: 0;
+      }
+    }
+
     header {
       padding: 20px;
       text-align: center;
       font-size: 1.2em;
       color: #ffccff;
     }
-
     .start-screen {
       display: flex;
       flex-direction: column;
@@ -32,7 +54,6 @@
       height: 100vh;
       text-align: center;
     }
-
     .start-screen button {
       padding: 10px 20px;
       font-size: 1em;
@@ -43,11 +64,9 @@
       cursor: pointer;
       margin-top: 20px;
     }
-
     .hidden {
       display: none;
     }
-
     .voucher {
       background-color: #0d223f;
       padding: 20px;
@@ -57,38 +76,30 @@
       max-width: 500px;
       text-align: center;
     }
-
     .voucher h2 {
       color: #ff69b4;
     }
-
     .voucher p {
       font-size: 1em;
       line-height: 1.6;
     }
-
     .gift-reveal {
       margin-top: 20px;
-      position: relative;
     }
-
     .gift-icon {
       font-size: 3em;
       cursor: pointer;
       transition: transform 0.3s ease;
     }
-
     .gift-icon:hover {
       transform: scale(1.1);
     }
-
     .gift-message {
       margin-top: 15px;
       font-size: 1.1em;
       color: #ffd700;
       display: none;
     }
-
     .gallery {
       display: flex;
       flex-direction: column;
@@ -97,42 +108,33 @@
       max-width: 480px;
       padding: 10px;
     }
-
     .gallery img {
       width: 100%;
       height: auto;
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
-
     footer {
       margin: 20px;
       font-size: 0.9em;
       color: #ccc;
     }
-
-    /* Animação de corações */
-    .explode-heart {
-      position: absolute;
-      font-size: 24px;
-      pointer-events: none;
-      animation: explode 1s ease-out forwards;
-      opacity: 0;
-    }
-
-    @keyframes explode {
-      0% {
-        transform: translate(0, 0) scale(1);
-        opacity: 1;
-      }
-      100% {
-        transform: translate(var(--x), var(--y)) scale(0.5);
-        opacity: 0;
-      }
-    }
   </style>
 </head>
 <body>
+
+  <!-- CORAÇÕES ANIMADOS -->
+  <script>
+    for (let i = 0; i < 30; i++) {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (6 + Math.random() * 5) + "s";
+      heart.style.setProperty('--x', (Math.random() * 100 - 50) + 'px');
+      heart.textContent = "💖";
+      document.body.appendChild(heart);
+    }
+  </script>
 
   <div class="start-screen" id="startScreen">
     <h1>💘 Clique aqui, Meu Amor 💘</h1>
@@ -146,7 +148,7 @@
       <p>Esse presente é apenas uma pequena demonstração de amor que tenho por você. E queria lhe dizer que me sinto muito lisonjeado de ter você em minha vida, nunca me senti tão bem amado como me sinto ao seu lado.<br><br>
       Te amo minha princesa. 💖</p>
       <div class="gift-reveal">
-        <div class="gift-icon" id="giftIcon" onclick="revealGift()">🎁</div>
+        <div class="gift-icon" onclick="revealGift()">🎁</div>
         <div class="gift-message" id="giftMessage"><strong>Presente:</strong> Vale compra no valor de <strong>R$ 500,00</strong></div>
       </div>
       <p>Com amor,<br>💌 Aldson Lima</p>
@@ -178,26 +180,6 @@
 
     function revealGift() {
       document.getElementById("giftMessage").style.display = 'block';
-      launchHearts();
-    }
-
-    function launchHearts() {
-      const giftIcon = document.getElementById("giftIcon");
-      const rect = giftIcon.getBoundingClientRect();
-      for (let i = 0; i < 40; i++) {
-        const heart = document.createElement("div");
-        heart.className = "explode-heart";
-        heart.textContent = Math.random() > 0.5 ? "💖" : "💘";
-        heart.style.left = rect.left + 25 + "px";
-        heart.style.top = rect.top + 25 + "px";
-        heart.style.setProperty("--x", `${(Math.random() - 0.5) * 300}px`);
-        heart.style.setProperty("--y", `${(Math.random() - 1) * 300}px`);
-        document.body.appendChild(heart);
-
-        setTimeout(() => {
-          heart.remove();
-        }, 1000);
-      }
     }
   </script>
 </body>
